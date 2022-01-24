@@ -24,7 +24,7 @@
 >    <dependencies>
 >        <dependency>
 >            <groupId>com.github.Verlif</groupId>
->            <artifactId>ExceptionCapture</artifactId>
+>            <artifactId>exception-spring-boot-starter</artifactId>
 >            <version>alpha-2.6.1-1</version>
 >        </dependency>
 >    </dependencies>
