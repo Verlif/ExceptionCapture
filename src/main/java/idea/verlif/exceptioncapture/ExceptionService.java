@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.annotation.PostConstruct;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,12 +18,16 @@ import java.util.Map;
 @ControllerAdvice
 public class ExceptionService {
 
-    private final Map<Class<? extends Throwable>, ExceptionHolder<?>> holderMap;
+    private Map<Class<? extends Throwable>, ExceptionHolder<?>> holderMap;
 
     @Autowired
     private BaseExceptionHolder baseHolder;
 
-    public ExceptionService(@Autowired ApplicationContext context) {
+    @Autowired
+    private ApplicationContext context;
+
+    @PostConstruct
+    public void load() {
         Map<String, ExceptionHolder> map = context.getBeansOfType(ExceptionHolder.class);
         holderMap = new HashMap<>(map.size());
         for (ExceptionHolder<?> holder : map.values()) {
