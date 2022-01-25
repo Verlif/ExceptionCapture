@@ -1,4 +1,4 @@
-package idea.verlif.exceptioncapture;
+package idea.verlif.spring.exception;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;

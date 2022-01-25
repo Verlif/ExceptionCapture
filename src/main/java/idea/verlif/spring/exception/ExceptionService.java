@@ -1,4 +1,4 @@
-package idea.verlif.exceptioncapture;
+package idea.verlif.spring.exception;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;

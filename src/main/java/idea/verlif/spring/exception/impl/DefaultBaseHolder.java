@@ -1,6 +1,6 @@
-package idea.verlif.exceptioncapture.impl;
+package idea.verlif.spring.exception.impl;
 
-import idea.verlif.exceptioncapture.BaseExceptionHolder;
+import idea.verlif.spring.exception.BaseExceptionHolder;
 
 /**
  * @author Verlif

@@ -1,4 +1,4 @@
-package idea.verlif.exceptioncapture;
+package idea.verlif.spring.exception;
 
 /**
  * 基础错误处理类
