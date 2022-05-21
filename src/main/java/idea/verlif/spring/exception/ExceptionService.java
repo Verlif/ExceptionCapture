@@ -31,7 +31,9 @@ public class ExceptionService {
         Map<String, ExceptionHolder> map = context.getBeansOfType(ExceptionHolder.class);
         holderMap = new HashMap<>(map.size());
         for (ExceptionHolder<?> holder : map.values()) {
-            holderMap.put(holder.register(), holder);
+            if (holder.register() != null) {
+                holderMap.put(holder.register(), holder);
+            }
         }
     }
 

@@ -1,5 +1,8 @@
 package idea.verlif.spring.exception;
 
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
 /**
  * 异常处理类
  *
@@ -15,7 +18,16 @@ public interface ExceptionHolder<T extends Throwable> {
      *
      * @return 异常类
      */
-    Class<? extends T> register();
+    default Class<? extends T> register() {
+        Type[] types = getClass().getGenericInterfaces();
+        for (Type type : types) {
+            if (type instanceof ParameterizedType) {
+                ParameterizedType parameterizedType = (ParameterizedType) type;
+                return (Class<T>) parameterizedType.getActualTypeArguments()[0];
+            }
+        }
+        throw null;
+    }
 
     /**
      * 异常处理
